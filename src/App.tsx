@@ -1,5 +1,5 @@
 import "./App.css";
-
+import MyTitle from "./components/MyTitle";
 import PokemonCard from "./components/PokemonCard";
 
 
@@ -8,7 +8,7 @@ import PokemonCard from "./components/PokemonCard";
     return (
   
       <section>
-  
+        <MyTitle/>
         <PokemonCard/>
   
       </section>
