@@ -1,6 +1,4 @@
-
-
-function PokemonCard(props : {name: string, imgSrc: string} ){
+function PokemonCard(props: { name: string; imgSrc: string }) {
   return (
     <figure>
       {props.imgSrc ? <img src={props.imgSrc} /> : <p>???</p>}
@@ -12,4 +10,3 @@ function PokemonCard(props : {name: string, imgSrc: string} ){
 }
 
 export default PokemonCard;
-//{pokemon.imgSrc !== "undefined" ? <img src={pokemon.imgSrc} alt={pokemon.Alt}/> : <p>???</p>}

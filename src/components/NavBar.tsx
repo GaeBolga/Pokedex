@@ -1,40 +1,23 @@
+import { useState } from "react";
+import PokemonCard from "./PokemonCard";
+import pokemon from "./tableau";
 
-
-interface NavBarProps {
-  count: number; 
-  setCount: (index: number) => void; 
-  totalCount: number; 
-}
-
-function NavBar({ count, setCount, totalCount }: NavBarProps) {
-  const handleClickPos = () => {
-    if (count < totalCount - 1) {
-      setCount(count + 1);
-    }
-  };
-
-  const handleClickNeg = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
+function NavBar() {
+  const [currentPokemon, setCurrentPokemon] = useState(pokemon[0]);
 
   return (
     <>
-      {count > 0 ? (
-        <button type="button" onClick={handleClickNeg}>
-          Précédent
+      <PokemonCard {...currentPokemon} />
+
+      {pokemon.map((props, i) => (
+        <button
+          type="button"
+          key={i}
+          onClick={() => setCurrentPokemon(pokemon[i])}
+        >
+          {props.name}
         </button>
-      ) : (
-        <span>ENOUGH</span>
-      )}
-      {count < totalCount - 1 ? (
-        <button type="button" onClick={handleClickPos}>
-          Suivant
-        </button>
-      ) : (
-        <span>STOP</span>
-      )}
+      ))}
     </>
   );
 }
